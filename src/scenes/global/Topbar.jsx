@@ -9,15 +9,15 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 
-import { useAuth } from "../login/useAuth";
-import { useLocation }  from 'react-router-dom';
-import { 
-  LayoutDashboard, 
-  Users,
-  Settings,
-  LogOut,
-  X
-} from 'lucide-react';
+// import { useAuth } from "../login/useAuth";
+// import { useLocation }  from 'react-router-dom';
+// import { 
+//   LayoutDashboard, 
+//   Users,
+//   Settings,
+//   LogOut,
+//   X
+// } from 'lucide-react';
 
 const Topbar = () => {
   const theme = useTheme();
@@ -25,12 +25,12 @@ const Topbar = () => {
   const colorMode = useContext(ColorModeContext);
 
 
-  const location = useLocation();
-  const { user, logout } = useAuth();
+  // const location = useLocation();
+  // const { user, logout } = useAuth();
   
-  const handleLogout = () => {
-    logout();
-  };
+  // const handleLogout = () => {
+  //   logout();
+  // };
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>

@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
+import LoginPage from "./scenes/login/LoginPage";
+import { useAuth } from "./scenes/login/useAuth";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
@@ -17,8 +21,16 @@ import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 
 function App() {
+
+  const { isAuthenticated } = useAuth();
+  const location = useLocation();
+
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
@@ -29,6 +41,10 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
+              <Route 
+                path="/login"
+                element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <LoginPage />} 
+              />
               <Route path="/" element={<Dashboard />} />
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
@@ -46,6 +62,14 @@ function App() {
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
+}
+
+function ProtectedRoute({ isAuthenticated }) {
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+  
+  return <Outlet />;
 }
 
 export default App;

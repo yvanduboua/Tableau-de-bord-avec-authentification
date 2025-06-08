@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 import LoginPage from "./scenes/login/LoginPage";
 import { useAuth } from "./scenes/login/useAuth";
 import Topbar from "./scenes/global/Topbar";
@@ -64,12 +64,12 @@ function App() {
   );
 }
 
-function ProtectedRoute({ isAuthenticated }) {
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
+// function ProtectedRoute({ isAuthenticated }) {
+//   if (!isAuthenticated) {
+//     return <Navigate to="/login" replace />;
+//   }
   
-  return <Outlet />;
-}
+//   return <Outlet />;
+// }
 
 export default App;

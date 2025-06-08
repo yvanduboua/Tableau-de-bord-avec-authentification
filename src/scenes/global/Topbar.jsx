@@ -9,15 +9,11 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 
-// import { useAuth } from "../login/useAuth";
-// import { useLocation }  from 'react-router-dom';
-// import { 
-//   LayoutDashboard, 
-//   Users,
-//   Settings,
-//   LogOut,
-//   X
-// } from 'lucide-react';
+import { Button } from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
+
+import { useAuth } from "../login/useAuth";
+
 
 const Topbar = () => {
   const theme = useTheme();
@@ -25,12 +21,11 @@ const Topbar = () => {
   const colorMode = useContext(ColorModeContext);
 
 
-  // const location = useLocation();
-  // const { user, logout } = useAuth();
+  const { logout } = useAuth();
   
-  // const handleLogout = () => {
-  //   logout();
-  // };
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -45,6 +40,16 @@ const Topbar = () => {
           <SearchIcon />
         </IconButton>
       </Box>
+
+      <Button
+        variant="contained"
+        color="primary"
+        startIcon={<LogoutIcon />}
+        sx={{ mx: 2 }}
+        onClick={handleLogout}
+      >
+        Déconnexion
+      </Button>
 
 
       {/* ICONS */}

@@ -110,6 +110,7 @@ const Button = ({ children, isLoading, ...props }) => (
               <div className="button-container">
                 <Button
                   type="submit"
+                  color="primary"
                   isLoading={isLoading}
                   disabled={isLoading}
                 >

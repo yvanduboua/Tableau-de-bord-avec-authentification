@@ -1,7 +1,10 @@
-# React Admin Dashboard
+# TABLEAU DE BORD REACT
 
-Build a COMPLETE React Admin Dashboard App | React, Material UI, Data Grid, Light & Dark Mode
+Un tableaau de bord complet fait en avec Login en LocalStorage | React, Material UI, Data Grid, Light & Dark Mode
 
-Video: https://www.youtube.com/watch?v=wYpCWwD1oz0
+Une fois que vous avez cloné le dépot, faites
+"npm install" pour installer les dépendences
+"npm start" pour lancer le projet
 
-For all related questions and discussions about this project, check out the discord: https://discord.gg/2FfPeEk2mX
+
+MERCI POUR VOTRE ATTENTION
